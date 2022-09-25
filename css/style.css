@@ -1,0 +1,382 @@
+/* 초기화 시작 */
+body,
+h1,
+ul,
+p,
+figure,
+input,
+strong {
+  border: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+* {
+  font-family: "Noto Sans KR", sans-serif;
+  box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* 유틸리티 */
+.ir_wa {
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  text-indent: -9999px;
+}
+
+.float-clear::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* 초기화 끝 */
+body {
+  background-color: #eae8fe;
+}
+
+/* .wrapper {
+  background-color: #eae8fe;
+  margin: 0 auto;
+} */
+
+header .header-title {
+  max-width: 386px;
+  height: 180px;
+  margin: 0 auto;
+}
+
+header .header-title img {
+  width: 100%;
+  height: 100%;
+}
+
+.main-section-vending {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+}
+
+.vending-left {
+  display: flex;
+  flex-direction: column;
+  padding: 31px 27px 28px 27px;
+  width: 360px;
+  height: 545px;
+  background-color: white;
+}
+
+.vending-right {
+  width: 360px;
+  height: 545px;
+  /* background-color: greenyellow; */
+}
+
+.drink-list {
+  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.drink-item {
+  cursor: pointer;
+  width: 93px;
+  height: 130px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 0.5);
+}
+
+.drink-item:hover {
+  outline: 3px solid #6327fe;
+}
+
+.drink-item figure {
+  width: 100%;
+  height: 100%;
+  font-weight: 500;
+  font-size: 9px;
+  padding: 10px;
+  text-align: center;
+  color: #333333;
+}
+
+/* 목록 리스트에서의 콜라 이미지 */
+.drink-item .drink-img {
+  width: 36px;
+  height: 65px;
+}
+
+.drink-item .drink-item-price {
+  display: block;
+  width: 70px;
+  height: 22px;
+  line-height: 22px;
+  font-weight: 500;
+  font-size: 12px;
+  margin-top: 7px;
+  background-color: #6327fe;
+  color: white;
+  margin-left: 3px;
+  border-radius: 50px;
+}
+
+/* 음료수 가 다 팔렸을 경우 클래스 추가 */
+/* .drink-soldout {
+} */
+
+/* 왼쪽 아래 섹션 */
+.drink-counter-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.drink-money {
+  display: flex;
+  gap: 12px;
+}
+
+.drink-money-balance {
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  flex-grow: 1;
+  padding-top: 6px;
+  padding-left: 10px;
+  background-color: #eae8fe;
+}
+
+.drink-money-balance .cnt-balance {
+  display: inline-block;
+  width: 70%;
+  text-align: right;
+}
+
+/* 원은 가상요소로 사용자 드래그 시 선택이 불가능하게 설정 */
+/* display 기본값 inline */
+.drink-money-balance::after {
+  /* inline-block으로 인한 공백을 없애기 위해 negative마진을 사용 */
+  margin-left: -3px;
+  content: "원";
+}
+
+.btn-blance {
+  font-weight: 500;
+  font-size: 13px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 0.5);
+  flex-basis: 94px;
+  height: 33px;
+}
+
+.form-deposit {
+  display: flex;
+  gap: 12px;
+}
+
+.form-deposit input {
+  border: 1px solid rgb(184, 182, 182);
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 13px;
+  flex-grow: 1;
+  background-color: #fff;
+  padding-left: 6px;
+}
+
+.btn-deposit {
+  font-weight: 500;
+  font-size: 13px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 0.5);
+  width: 94px;
+  height: 32px;
+}
+
+/* 완벽하게 선택하기 전 음료수 */
+
+.drink-select {
+  display: flex;
+  gap: 12px;
+}
+
+.select-list {
+  overflow-y: scroll;
+  border-radius: 5px;
+  flex-grow: 1;
+  padding: 12px 18px 0px 12px;
+  border: 1px solid rgb(184, 182, 182);
+  /* 높이 고정시켜야지 스크롤이 생길 수 있다. */
+  height: 106px;
+  background-color: #eae8fe;
+}
+
+.select-item {
+  width: 100%;
+  padding: 6px;
+  padding-top: 8px;
+  margin-bottom: 6px;
+  background-color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-item:last-child {
+  margin-bottom: 0px;
+}
+
+.select-item figcaption {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 500;
+  vertical-align: 1.4em;
+
+  width: 80%;
+  margin-left: 0.6em;
+  margin-top: 0.6em;
+}
+
+/* 완벽하게 선택하기 전 음료수 선택 값 */
+.select-item .cnt-num {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 30px;
+  margin-left: 12px;
+  text-align: center;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+}
+
+.select-item .drink-img {
+  width: 18px;
+  height: 33px;
+}
+
+.btn-select {
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 4px;
+  background-color: #6327fe;
+  padding: 10px 6px 9px 7px;
+  flex-basis: 94px;
+  height: 106px;
+  color: white;
+}
+
+/* 오른쪽 섹션 스타일 링 */
+.cnt-own {
+  background-color: white;
+  padding: 9px 27px;
+  margin-bottom: 20px;
+}
+
+.own-info {
+  display: flex;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 6px 10px;
+  background-color: #eae8fe;
+}
+
+.own-info::after {
+  content: "원";
+}
+
+.own-money {
+  text-align: right;
+  flex-grow: 1;
+  font-weight: 700;
+}
+
+.drink-own {
+  background-color: white;
+  padding: 25px 27px 26px 27px;
+  height: 474px;
+}
+
+.drink-own-list {
+  padding: 12px 18px 12px 12px;
+  background-color: #eae8fe;
+  height: 364px;
+  margin-bottom: 6px;
+  overflow-y: scroll;
+}
+
+.drink-own-list li {
+  background-color: white;
+  margin-bottom: 6px;
+  padding: 8px;
+  border-radius: 5px;
+}
+
+.drink-own-list li:last-child {
+  margin-bottom: 0px;
+}
+
+.drink-own-list .drink-img {
+  width: 18px;
+  height: 33px;
+  vertical-align: middle;
+}
+
+.drink-own-title {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 13px;
+}
+
+.drink-title {
+  margin-left: 10px;
+  font-weight: 500;
+  font-size: 9px;
+}
+
+.total-money {
+  display: block;
+  text-align: right;
+  font-weight: 500;
+  font-size: 12px;
+}
+
+.drink-own-list .cnt-num {
+  float: right;
+  padding: 5px 10px;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  body {
+    background-color: #fff;
+  }
+
+  header .header-title {
+    width: 166px;
+    height: 70px;
+  }
+}
