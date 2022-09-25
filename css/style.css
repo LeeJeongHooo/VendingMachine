@@ -176,6 +176,7 @@ header .header-title img {
 }
 
 .btn-blance {
+  flex-shrink: 0;
   font-weight: 500;
   font-size: 13px;
   background-color: white;
@@ -201,6 +202,7 @@ header .header-title img {
 }
 
 .btn-deposit {
+  flex-shrink: 0;
   font-weight: 500;
   font-size: 13px;
   border-radius: 5px;
