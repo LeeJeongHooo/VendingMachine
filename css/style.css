@@ -55,15 +55,9 @@ li {
 }
 
 /*  Style */
-
 body {
-  background-color: #eae8fe;
+  background-color: var(--color-light-purple);
 }
-
-/* .wrapper {
-  background-color: #eae8fe;
-  margin: 0 auto;
-} */
 
 header .header-title {
   max-width: 386px;
@@ -76,7 +70,7 @@ header .header-title img {
   height: 100%;
 }
 
-.main-section-vending {
+.main-vending-section {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -84,20 +78,21 @@ header .header-title img {
   gap: 28px;
 }
 
-.vending-left {
+.vending-left-section {
   display: flex;
   flex-direction: column;
   padding: 31px 27px 28px 27px;
   width: 360px;
   height: 545px;
-  background-color: #ffffff;
+  background-color: var(--color-white);
 }
 
-.vending-right {
+.vending-right-section {
   width: 360px;
   height: 545px;
 }
 
+/* 좌측 섹션 */
 .drink-list {
   justify-content: space-between;
   display: flex;
@@ -106,7 +101,7 @@ header .header-title img {
   margin-bottom: 20px;
 }
 
-.drink-item {
+.drink-list li {
   cursor: pointer;
   width: 93px;
   height: 130px;
@@ -114,36 +109,36 @@ header .header-title img {
   box-shadow: 0px 0px 4px rgb(0 0 0 / 0.5);
 }
 
-.drink-item:hover {
-  outline: 3px solid #6327fe;
+.drink-list li:hover {
+  outline: 3px solid var(--color-purple);
 }
 
 .drink-item figure {
   width: 100%;
   height: 100%;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   font-size: 9px;
   padding: 10px;
   text-align: center;
-  color: #333333;
+  color: var(--color-dark-gray);
 }
 
 /* 목록 리스트에서의 콜라 이미지 */
-.drink-item .drink-img {
+.drink-list .drink-img {
   width: 36px;
   height: 65px;
 }
 
-.drink-item .drink-item-price {
+.drink-item-price {
   display: block;
   width: 70px;
   height: 22px;
   line-height: 22px;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   font-size: 12px;
   margin-top: 7px;
-  background-color: #6327fe;
-  color: white;
+  background-color: var(--color-purple);
+  color: var(--color-white);
   margin-left: 3px;
   border-radius: 50px;
 }
@@ -152,29 +147,29 @@ header .header-title img {
 /* .drink-soldout {
 } */
 
-/* 왼쪽 아래 섹션 */
-.drink-counter-section {
+/* 음료수 계산대 */
+.drink-counter {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.drink-money {
+.drink-balance {
   display: flex;
   gap: 12px;
 }
 
-.drink-money-balance {
+.drink-balance-txt {
   border-radius: 5px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   flex-grow: 1;
   padding-top: 6px;
   padding-left: 10px;
-  background-color: #eae8fe;
+  background-color: var(--color-light-purple);
 }
 
-.drink-money-balance .cnt-balance {
+.cnt-balance {
   display: inline-block;
   width: 70%;
   text-align: right;
@@ -182,51 +177,50 @@ header .header-title img {
 
 /* 원은 가상요소로 사용자 드래그 시 선택이 불가능하게 설정 */
 /* display 기본값 inline */
-.drink-money-balance::after {
-  /* inline-block으로 인한 공백을 없애기 위해 negative마진을 사용 */
+.drink-balance-txt::after {
+  /* inline-block설정 후 폰트 사이즈에 의한 공백을 없애기 위해 negative마진을 활용 */
   margin-left: -3px;
   content: "원";
 }
 
 .btn-balance {
   flex-shrink: 0;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   font-size: 13px;
-  background-color: white;
+  background-color: var(--color-white);
   border-radius: 5px;
   box-shadow: 0px 0px 4px rgb(0 0 0 / 0.5);
   flex-basis: 94px;
   height: 33px;
 }
 
-.form-deposit {
+.deposit-form {
   display: flex;
   gap: 12px;
 }
 
-.form-deposit input {
-  border: 1px solid #bdbdbd;
+.deposit-form input {
+  border: 1px solid var(--color-light-gray);
   border-radius: 5px;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   font-size: 13px;
   flex-grow: 1;
-  background-color: #fff;
+  background-color: var(--color-white);
   padding-left: 6px;
 }
 
 .btn-deposit {
   flex-shrink: 0;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   font-size: 13px;
   border-radius: 5px;
-  background-color: white;
+  background-color: var(--color-white);
   box-shadow: 0px 0px 4px rgb(0 0 0 / 0.5);
   width: 94px;
   height: 32px;
 }
 
-/* 완벽하게 선택하기 전 음료수 */
-
+/* 선택한 음료수 */
 .drink-select {
   display: flex;
   gap: 12px;
@@ -237,96 +231,104 @@ header .header-title img {
   border-radius: 5px;
   flex-grow: 1;
   padding: 12px 18px 0px 12px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid var(--color-light-gray);
   /* 높이 고정시켜야지 스크롤이 생길 수 있다. */
   height: 106px;
-  background-color: #eae8fe;
+  background-color: var(--color-light-purple);
 }
 
-.select-item {
+.select-list li {
   width: 100%;
   padding: 6px;
   padding-top: 8px;
   margin-bottom: 6px;
-  background-color: #fff;
+  background-color: var(--color-white);
   border-radius: 5px;
   cursor: pointer;
 }
 
-.select-item:last-child {
+.select-list li:last-child {
   margin-bottom: 0px;
 }
 
-.select-item figcaption {
+.select-list figcaption {
   display: inline-block;
   font-size: 9px;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   width: 80%;
 }
 
 /* 완벽하게 선택하기 전 음료수 선택 값 */
-.select-item .cnt-num {
+.select-list .cnt-num {
   float: right;
   padding: 5px 10px;
-  border: 1px solid #bdbdbd;
+  border: 1px solid var(--color-light-gray);
   border-radius: 5px;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   font-size: 14px;
   margin-top: -8px;
 }
 
-.select-item .drink-img {
+.select-list .drink-img {
   vertical-align: top;
   width: 18px;
   height: 33px;
 }
 
 .btn-select {
-  font-weight: 700;
+  font-weight: var(--font-weight-large);
   font-size: 13px;
   border-radius: 4px;
-  background-color: #6327fe;
+  background-color: var(--color-purple);
   padding: 10px 6px 9px 7px;
   flex-basis: 94px;
   height: 106px;
-  color: white;
+  color: var(--color-white);
 }
 
-/* 오른쪽 섹션 스타일 링 */
-.cnt-own {
-  background-color: white;
+/* 우측 섹션 */
+.own-money {
+  background-color: var(--color-white);
   padding: 9px 27px;
   margin-bottom: 20px;
 }
 
-.own-info {
+.own-money-txt {
   display: flex;
   border-radius: 5px;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   font-size: 14px;
   padding: 6px 10px;
-  background-color: #eae8fe;
+  background-color: var(--color-light-purple);
 }
 
-.own-info::after {
+.own-money-txt::after {
   content: "원";
 }
 
-.own-money {
-  text-align: right;
+.own-money-cnt {
   flex-grow: 1;
-  font-weight: 700;
+  text-align: right;
+  font-weight: var(--font-weight-bold);
 }
 
 .drink-own {
-  background-color: white;
+  background-color: var(--color-white);
   padding: 25px 27px 26px 27px;
   height: 474px;
 }
 
+.drink-own-title {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  font-weight: var(--font-weight-large);
+  margin-bottom: 13px;
+}
+
 .drink-own-list {
   padding: 12px 18px 12px 12px;
-  background-color: #eae8fe;
+  background-color: var(--color-light-purple);
   height: 364px;
   margin-bottom: 6px;
   overflow-y: scroll;
@@ -335,10 +337,13 @@ header .header-title img {
 .drink-own-list figcaption {
   display: inline-block;
   width: 91%;
+  font-size: 9px;
+  margin-left: 10px;
+  font-weight: var(--font-weight-medium);
 }
 
 .drink-own-list li {
-  background-color: white;
+  background-color: var(--color-white);
   margin-bottom: 6px;
   padding: 8px;
   border-radius: 5px;
@@ -354,38 +359,20 @@ header .header-title img {
   vertical-align: middle;
 }
 
-.drink-own-title {
-  display: block;
-  text-align: center;
+.drink-own-list .cnt-num {
+  float: right;
+  padding: 5px 10px;
+  border: 1px solid var(--color-light-gray);
+  border-radius: 5px;
+  font-weight: var(--font-weight-medium);
   font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 13px;
-}
-
-.drink-title {
-  margin-left: 10px;
-  font-weight: 500;
-  font-size: 9px;
 }
 
 .total-money {
   display: block;
   text-align: right;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   font-size: 12px;
-}
-
-.drink-own-list .cnt-num {
-  float: right;
-  padding: 5px 10px;
-  border: 1px solid #bdbdbd;
-  border-radius: 5px;
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.hidden {
-  display: none;
 }
 
 /* Media-Query */

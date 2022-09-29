@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>vending-machine</title>
+  <title>VendingMachine</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,18 +14,21 @@
 </head>
 
 <body>
-  <!-- wrapper로 전체 한번 묶기 -->
-  <!-- <div class="wrapper"> -->
 
   <header>
-    <h1 class="header-title"><img src="images/logo.png" alt="콜라 밴딩머신"></h1>
+    <h1 class="header-title">
+      <img src="images/logo.png" alt="ColaVendingMachine">
+    </h1>
   </header>
+
+  <!-- main시작 -->
   <main>
-    <!-- 전체 flex레이아웃으로 화면이 줄어들면서 자연스럽게 떨어지게 하기 -->
-    <section class="main-section-vending">
-      <h2 class="ir_wa">벤딩 머신</h2>
-      <!-- 완쪽 섹션 -->
-      <div class="vending-left">
+    <section class="main-vending-section">
+      <h2 class="ir_wa">VendingMachine</h2>
+
+      <!-- 왼쪽 섹션 -->
+      <section class="vending-left-section">
+        <h3 class="ir_wa">drinklist and Counter</h3>
 
         <!-- 음료수 자판기 -->
         <ul class="drink-list">
@@ -59,7 +62,7 @@
           <li class="drink-item" data-type="Cool_Cola">
             <figure>
               <img class="drink-img" src="images/Cool_Cola.png" alt="">
-              <figcaption class="float-clear">
+              <figcaption>
                 Cool_Cola
                 <span class="drink-item-price">1000원</span>
               </figcaption>
@@ -68,7 +71,7 @@
           <li class="drink-item" data-type="Green_Cola">
             <figure>
               <img class="drink-img" src="images/Green_Cola.png" alt="">
-              <figcaption class="float-clear">
+              <figcaption>
                 Green_Cola
                 <span class="drink-item-price">1000원</span>
               </figcaption>
@@ -77,7 +80,7 @@
           <li class="drink-item" data-type="Orange_Cola">
             <figure>
               <img class="drink-img" src="images/Orange_Cola.png" alt="">
-              <figcaption class="float-clear">
+              <figcaption>
                 Orange_Cola
                 <span class="drink-item-price">1000원</span>
               </figcaption>
@@ -86,67 +89,58 @@
         </ul>
 
         <!-- 음료수 계산대 -->
-        <div class="drink-counter-section">
+        <div class="drink-counter">
           <!-- 거스름돈 반환 -->
-          <div class="drink-money">
-            <p class="drink-money-balance">
-              잔액 : <span class="cnt-balance">10000000000000</span>
+          <div class="drink-balance">
+            <p class="drink-balance-txt">
+              잔액 : <span class="cnt-balance"></span>
             </p>
-            <button class="btn-blance" type="button">거스름돈 반환</button>
+            <button class="btn-balance" type="button">거스름돈 반환</button>
           </div>
 
           <!-- 입금 -->
-          <form class="form-deposit">
+          <form class="deposit-form">
             <input type="number" placeholder="입금액 입력">
-            <button class="btn-deposit" type="button">입금</button>
+            <button class="btn-deposit">입금</button>
           </form>
 
           <!-- 완벽하게 선택하기 전 음료수 -->
           <div class="drink-select">
             <ul class="select-list">
-              <li class="select-item">
+              <!-- <li>
                 <figure>
                   <img class="drink-img" src="images/Original_Cola.png" alt="">
                   <figcaption>Original_Cola
-                    <span class="cnt-num">1</span>
+                    <span class="cnt-num">0</span>
                   </figcaption>
                 </figure>
               </li>
-              <li class="select-item">
+              <li>
                 <figure>
                   <img class="drink-img" src="images/Green_Cola.png" alt="">
                   <figcaption>Green_Cola
-                    <span class="cnt-num">2</span>
+                    <span class="cnt-num">0</span>
                   </figcaption>
                 </figure>
               </li>
-              <li class="select-item">
-                <figure>
-                  <img class="drink-img" src="images/Original_Cola.png" alt="">
-                  <figcaption>Original_Cola
-                    <span class="cnt-num">5</span>
-                  </figcaption>
-                </figure>
-              </li>
+              -->
             </ul>
             <button class="btn-select" type="button">
               획득
             </button>
           </div>
-
         </div>
+      </section>
 
-      </div>
+      <!-- 우측 섹션 -->
+      <section class="vending-right-section">
+        <h3 class="ir_wa">Mydrink Information</h3>
 
-      <!-- 우측 섹션 현재 정보 -->
-
-      <div class="vending-right">
-
-        <div class="cnt-own">
+        <div class="own-money">
           <!-- 원을 after로 줄 경우 문제가 발생하기 때문에 clear-fix말고 다른 방법고려 -->
-          <p class="own-info">
+          <p class="own-money-txt">
             소지금 :
-            <span class="own-money">25,000</span>
+            <span class="own-money-cnt">50000</span>
           </p>
         </div>
 
@@ -154,49 +148,22 @@
           <strong class="drink-own-title">획득한 음료</strong>
           <ul class="drink-own-list">
             <!-- li요소에는 클래스를 안넣는게 좋을까? -->
-            <li class="float-clear">
-              <img src="images/Original_Cola.png" alt="" class="drink-img">
-              <strong class="drink-title">Original_Cola</strong>
-              <span class="cnt-num">1</span>
-            </li>
-            <li class="float-clear">
-              <img src="images/Green_Cola.png" alt="" class="drink-img">
-              <strong class="drink-title">Green Cola</strong>
-              <span class="cnt-num">2</span>
-            </li>
-            <li class="float-clear">
-              <img src="images/Orange_Cola.png" alt="" class="drink-img">
-              <strong class="drink-title">Orange Cola</strong>
-              <span class="cnt-num">1</span>
-            </li>
-            <li class="float-clear">
-              <img src="images/Violet_Cola.png" alt="" class="drink-img">
-              <strong class="drink-title">Violet Cola</strong>
-              <span class="cnt-num">5</span>
-            </li>
-            <li class="float-clear">
-              <img src="images/Violet_Cola.png" alt="" class="drink-img">
-              <strong class="drink-title">Violet Cola</strong>
-              <span class="cnt-num">5</span>
-            </li>
-            <li class="float-clear">
-              <img src="images/Violet_Cola.png" alt="" class="drink-img">
-              <strong class="drink-title">Violet Cola</strong>
-              <span class="cnt-num">5</span>
-            </li>
-            <li class="float-clear">
-              <img src="images/Violet_Cola.png" alt="" class="drink-img">
-              <strong class="drink-title">Violet Cola</strong>
-              <span class="cnt-num">5</span>
-            </li>
+            <!-- <li class="float-clear">
+              <figure>
+                <img src="images/Original_Cola.png" alt="" class="drink-img">
+                <figcaption>
+                  Original_Cola
+                  <span class="cnt-num">1</span>
+                  </figcaptio>
+              </figure>
+            </li> -->
           </ul>
           <strong class="total-money">총금액 : 9,000원</strong>
         </div>
-      </div>
+      </section>
     </section>
   </main>
 
-  <!-- </div> -->
   <script src="js/main.js"></script>
 </body>
 
